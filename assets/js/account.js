@@ -1,66 +1,25 @@
-$('#signup').click(function () {
-  $('#first').fadeOut('fast', function () {
-    $('#second').fadeIn('fast');
-  });
+const signUpButton = document.getElementById('signUp');
+const signInButton = document.getElementById('signIn');
+const container = document.getElementById('container');
+
+signUpButton.addEventListener('click', () => {
+  container.classList.add('right-panel-active');
 });
 
-$('#signin').click(function () {
-  $('#second').fadeOut('fast', function () {
-    $('#first').fadeIn('fast');
-  });
+signInButton.addEventListener('click', () => {
+  container.classList.remove('right-panel-active');
 });
 
-$(function () {
-  $("form[name='login']").validate({
-    rules: {
-      email: {
-        required: true,
-        email: true,
-      },
-      password: {
-        required: true,
-      },
-    },
-    messages: {
-      email: 'Please enter a valid email address',
+// modal login
+var modal = document.getElementById('modal-form');
+var btn = document.getElementById('login-modal');
+btn.onclick = function () {
+  modal.style.display = 'flex';
+};
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = 'none';
+  }
+};
 
-      password: {
-        required: 'Please enter password',
-      },
-    },
-    submitHandler: function (form) {
-      form.submit();
-    },
-  });
-});
-
-$(function () {
-  $("form[name='registration']").validate({
-    rules: {
-      firstname: 'required',
-      lastname: 'required',
-      email: {
-        required: true,
-        email: true,
-      },
-      password: {
-        required: true,
-        minlength: 5,
-      },
-    },
-
-    messages: {
-      firstname: 'Please enter your firstname',
-      lastname: 'Please enter your lastname',
-      password: {
-        required: 'Please provide a password',
-        minlength: 'Your password must be at least 5 characters long',
-      },
-      email: 'Please enter a valid email address',
-    },
-
-    submitHandler: function (form) {
-      form.submit();
-    },
-  });
-});
+//validate form

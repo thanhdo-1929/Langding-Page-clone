@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="./assets/css/main.css">
     <link rel="stylesheet" href="./assets/css/grid.css">
     <link rel="stylesheet" href="./assets/css/responsive.css">
+    <link rel="stylesheet" href="./assets/css/account.css">
+
     <link rel="stylesheet" href="./assets/font/fontawesome-free-5.15.4-web/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
@@ -234,8 +236,10 @@
             <div class="header__search hide-on-mobile-tablet">
                 <div class="header__search-container">
 
-                    <div class="header__search-item">
-                        <i class="header__search-icon fas fa-search"></i>
+                    <div class="header__search-item" id="show-moda">
+                        <a class="header__search-icon ">
+                            <i class="fas fa-search"></i>
+                        </a>
                     </div>
 
                     <!-- <div class="header__text">
@@ -259,17 +263,103 @@
                         </div>
                     </div> -->
                     <div class="header__text">
-                        <a href="account.html" class="header__text-item">
+                        <button class="header__text-item" id="login-modal"> <span
+                                class="header__item">Login</span></button>
+                        <!-- <a href="" class="header__text-item" id="login-modal">
                             <span class="header__item">Login</span>
-                        </a>
+                        </a> -->
+                    </div>
+
+                </div>
+                <!-- phần moda -->
+                <div id="moda-appear">
+                    <div class="moda-body">
+                        <input type="text" placeholder="Search..." class="moda-body-input">
+                        <span class="moda-body-btn">find now</span>
+                    </div>
+                    <div id="moda-close" class="center">
+                        <i class="fa-solid fa-xmark"></i>
                     </div>
                 </div>
             </div>
             <div class="mobile-header-menu hide-on-PC">
-                <a href="account.html" class="mobile-header-menu-icon far fa-user-circle">
+                <a href="account.html" id="login-modal" class="mobile-header-menu-icon far fa-user-circle">
                 </a>
             </div>
+
         </header>
+        <div class="modal" id="modal-form">
+            <div class="container form-login" id="container">
+
+                <div class="form-container sign-up-container">
+
+                    <form action="#" method="post" id="form-1">
+
+                        <h1>Create Account</h1>
+                        <div class="form-input ">
+                            <input id="name" class="form-control" type="text" placeholder="Name" />
+                            <span class="form-message"></span>
+                        </div>
+                        <div class="form-input ">
+                            <input id="email" class="form-control" type="email" placeholder="Email" />
+
+                            <span class="form-message"></span>
+                        </div>
+                        <div class="form-input ">
+                            <input id="password" class="form-control" type="password" placeholder="Password" />
+
+                            <span class="form-message"></span>
+                        </div>
+                        <div class="form-input ">
+                            <input id="re-password" class="form-control" type="password" placeholder="Re-password" />
+
+                            <span class="form-message"></span>
+                        </div>
+                        <button class="form-submit">Sign Up</button>
+                    </form>
+                </div>
+                <div class="form-container sign-in-container">
+                    <form action="#" method="post" id="form-2">
+                        <h1>Sign In</h1>
+                        <div class="social-container">
+                            <a href="#" class="social-1"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-2"><i class="fab fa-google-plus-g"></i></a>
+                            <a href="#" class="social-3"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                        <span>or use your account</span>
+                        <div class="form-input">
+                            <input id="email" class="form-control" type="email" placeholder="Email" />
+
+                            <span class="form-message"></span>
+                        </div>
+                        <div class="form-input">
+                            <input id="password" class="form-control" type="password" placeholder="Password" />
+
+                            <span class="form-message"></span>
+                        </div>
+                        <a href="#">Forgot your password?</a>
+                        <button class="form-submit">Sign In</button>
+                        <!-- <a class="btn-home" href="index.html">Home</a> -->
+                    </form>
+                </div>
+
+                <div class="overlay-container">
+                    <div class="overlay">
+                        <div class="overlay-panel overlay-left">
+                            <h1>Welcome Back!</h1>
+                            <p>To keep connected with us please login with your personal info</p>
+                            <button class="ghost" id="signIn">Sign In</button>
+                        </div>
+                        <div class="overlay-panel overlay-right">
+                            <h1>Hello, Friend!</h1>
+                            <p>Enter your personal details and start journey with us</p>
+                            <button class="ghost" id="signUp">Sign Up</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
         <div class="body">
             <div class="grid">
                 <!-- MAIN SLIDE -->
@@ -547,8 +637,8 @@
                         <!--slider------------------->
                         <ul class="slide__review-list">
                             <!-- Radio button -->
-                            <!-- <input type="radio" name="radio-btn2" id="radio3">
-                            <input type="radio" name="radio-btn2" id="radio4"> -->
+                            <input type="radio" name="radio-btn2" id="radio3">
+                            <input type="radio" name="radio-btn2" id="radio4">
 
                             <li class=" slide__review-item  first">
                                 <div class="slide__review-item-wrap">
@@ -613,12 +703,77 @@
                                     </div>
                                 </div>
                             </li>
-
-                            <!-- manual navigation -->
-                            <div class="slide__review__navigation-manual">
-                                <label for="radio3" class="manual-btn2 manual-btn--active js-dot-1"></label>
-                                <label for="radio4" class="manual-btn2 js-dot-2"></label>
-                            </div>
+                            <li class=" slide__review-item ">
+                                <div class="slide__review-item-wrap">
+                                    <div class="slide__review-item-img">
+                                        <img src="https://setsail.qodeinteractive.com/wp-content/uploads/2018/09/user-img-3.png"
+                                            alt="">
+                                    </div>
+                                    <div class="review__item__details">
+                                        <a href="#" class="slide__review-item-details-name">Taipei</a>
+                                        <span class="slide__review-item-details-rate">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </span>
+                                        <a class="slide__review-item-details-text">
+                                            Fa etor eviuas lwqedit tas, vut et nihc egam yubulas. Ei euvy </a>
+                                        <span class="slide__review-item-details-info">Susan Day</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class=" slide__review-item ">
+                                <div class="slide__review-item-wrap">
+                                    <div class="slide__review-item-img">
+                                        <img src="https://setsail.qodeinteractive.com/wp-content/uploads/2018/09/user-img-2.png"
+                                            alt="">
+                                    </div>
+                                    <div class="review__item__details">
+                                        <a href="#" class="slide__review-item-details-name">tarragona</a>
+                                        <span class="slide__review-item-details-rate">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </span>
+                                        <a class="slide__review-item-details-text">
+                                            Fa etor eviuas lwqedit tas, vut et nihc egam yubulas. Ei euvy </a>
+                                        <span class="slide__review-item-details-info">Carl Moore</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class=" slide__review-item  ">
+                                <div class="slide__review-item-wrap">
+                                    <div class="slide__review-item-img">
+                                        <img src="https://setsail.qodeinteractive.com/wp-content/uploads/2018/09/user-img-7.png"
+                                            alt="">
+                                    </div>
+                                    <div class="review__item__details">
+                                        <a href="#" class="slide__review-item-details-name">Holland Canals</a>
+                                        <span class="slide__review-item-details-rate">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </span>
+                                        <a class="slide__review-item-details-text">Lorem ipsum dolor sit amet
+                                            consectetur
+                                            adipisicing elit. Reiciendis libero doloremque provident iure alias nihil
+                                            laboriosam ex amet in</a>
+                                        <span class="slide__review-item-details-info">Ema Cooper</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <!-- manual navigation -->
+                        <div class="slide__review__navigation-manual">
+                            <label for="radio3" class="manual-btn2 manual-btn--active js-dot-1"></label>
+                            <label for="radio4" class="manual-btn2 js-dot-2"></label>
+                        </div>
                     </div>
                 </div>
 
@@ -971,36 +1126,57 @@
         </div>
     </div>
 
+    <script src="assets/js/account.js"></script>
+    <script src="assets/js/validator.js"></script>
     <script>
-        var slideIndex = 0;
-        showSlides();
-        function showSlides() {
-            var i;
-            var slides = document.getElementsByClassName("mySlides");
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            slideIndex++;
-            if (slideIndex > slides.length) { slideIndex = 1 }
-            slides[slideIndex - 1].style.display = "flex";
-            setTimeout(showSlides, 5000);
-        }
+        // document.addEventListener('DOMContentLoaded', function () {
+        // Mong muốn của chúng ta
+        Validator({
+            form: '#form-1',
+            // formGroupSelector: '.form-input',
+            // errorSelector: '.form-message',
+            rules: [
+                Validator.isRequired('#name', 'Please enter name'),
+                Validator.isRequired('#email'),
+                Validator.isEmail('#email'),
+                Validator.minLength('#password', 6),
+                Validator.isRequired('#re-password'),
+                Validator.isConfirmed('#re-password', function () {
+                    return document.querySelector('#form-1 #password').value;
+                }, 'Password incorrect')
+            ],
+            // onSubmit: function (data) {
+            //     // Call API
+            //     console.log(data);
+            // }
+        });
+
+        Validator({
+            form: '#form-2',
+            rules: [
+                Validator.isRequired('#email'),
+                Validator.isEmail('#email'),
+                Validator.minLength('#password', 6),
+            ],
+            // onSubmit: function (data) {
+            //     // Call API
+            //     console.log(data);
+            // }
+        });
+        // });
+
     </script>
+    <script src="assets/js/index.js">
 
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./assets/js/counter/jquery.waypoints.min.js"></script>
+    <script src="./assets/js/counter/counterup.js"></script>
     <script>
-        const navMobileBtn = document.querySelector('.js-mobile-btn')
-        const mobileMenu = document.querySelector('.js-mobile-menu')
-        var mobileOverlay = document.querySelector('.mobile-menu-overlay')
-
-        navMobileBtn.onclick = function () {
-            mobileMenu.style.transform = "scaleY(1)";
-            mobileOverlay.style.display = "block";
-        }
-
-        mobileOverlay.onclick = function () {
-            mobileMenu.style.transform = "scaleY(0)";
-            mobileOverlay.style.display = "none";
-        }
+        $('.count').countUp({
+            delay: 10,
+            time: 2000
+        });
 
     </script>
 </body>
